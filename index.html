@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/css">
+        body:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: .05;
+            z-index: -1;
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background-size: 90%;
+            background-position: left bottom -85vh;
+            background-image: url(https://www.icc-cricket.com/resources/icc-prod/v1.1.1/i/bg-elements/icc-bg-gradient.svg);
+            background-repeat: no-repeat;
+        }
+        body {
+            background: #0d1635;
+        }
+
+        .top-three-flag {
+            width: 60px;
+            height: 40px;
+            display: block;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .ranking-card-header {
+            background: linear-gradient(118.35deg,hsla(0,0%,100%,.12),hsla(0,0%,100%,.05) 57.29%);
+        }
+
+        .top-3-tile {
+            background: linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,.05));
+        }
+
+        .rank-list-flag {
+            width: 26px;
+            height: 20px;
+            display: block;
+        }
+
+        .player-avatar {
+            background-image: url('https://www.icc-cricket.com/resources/icc-prod/v1.1.1/i/bg-elements/player-card-bg-test.svg')
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto py-8">
+        <!-- Header -->
+        <header class="bg-gradient-to-r from-blue-500 to-blue-700 px-6 pt-6 rounded-t-lg">
+            <!-- TOP -->
+            <div class="flex justify-between items-center">
+                <div class="flex gap-x-8 items-center">
+                    <img
+                        src="https://resources.pulse.icc-cricket.com/photo-resources/2022/07/11/0906796e-088a-4c9f-816f-52fa87813bb7/MRF-Rankings-logo.png?width=150&height=50"
+                        alt="mrf"
+                    >
+                    <h2 class="text-2xl text-white font-medium">ICC Rankings</h2>
+                </div>
+                <div>
+                    <a class="bg-blue-500 p-2 rounded text-white uppercase text-sm font-medium" href="#">View All Rankings</a>
+                </div>
+            </div>
+            <!-- BOTTOM -->
+            <ul class="flex space-x-6 mt-6">
+                <li class="text-white uppercase font-medium">Player Rankings</li>
+                <li class="text-white uppercase font-medium border-b-4 pb-3">Team Rankings</li>
+            </ul>
+        </header>
+
+        <!-- Buttons -->
+        <section class="py-6 flex space-x-24">
+            <div class="space-x-2">
+                <button class="bg-white font-medium px-4 py-2 rounded-lg text-sm uppercase">Mens</button>
+                <button class="bg-indigo-900 font-medium px-4 py-2 rounded-lg text-sm text-white uppercase">Womens</button>
+            </div>
+            <div class="space-x-2">
+                <button class="bg-white font-medium px-4 py-2 rounded-lg text-sm uppercase">Test</button>
+                <button class="bg-indigo-900 font-medium px-4 py-2 rounded-lg text-sm text-white uppercase">ODI</button>
+                <button class="bg-indigo-900 font-medium px-4 py-2 rounded-lg text-sm text-white uppercase">T20I</button>
+            </div>
+        </section>
+
+        <!-- Rank Team Cards -->
+        <section class="gap-4 grid grid-cols-3">
+            <!-- Single Card -->
+            <div>
+                <div class="ranking-card-header rounded-lg">
+                    <div class="h-10">
+                        <span class="absolute bg-green-400 font-medium px-2 py-1 rounded-br-lg rounded-tl-lg text-xs uppercase">Test</span>
+                    </div>
+                    <!-- Top 3 -->
+                    <div class="gap-3 grid grid-cols-3 px-3">
+                        <div class="bg-gradient-to-b from-green-400 to-transparent rounded-t-lg top-3-tile">
+                            <div>
+                                <div class="h-7">
+                                    <span class="absolute font-medium px-2 py-1 rounded-br-lg rounded-tl-lg text-xs">1</span>
+                                </div>
+                            </div>
+                            <div class="text-center pb-3">
+                                <span class="mx-auto top-three-flag rounded-lg" style="background-image: url(./assets/img/flag-aus.png)"></span>
+                                <span class="font-medium text-white text-xs">AUS</span>
+                            </div>
+                        </div>
+                        <div class="top-3-tile rounded-t-lg">
+                            <div>
+                                <div class="h-7">
+                                    <span class="absolute bg-green-400 font-medium px-2 py-1 rounded-br-lg rounded-tl-lg text-xs">1</span>
+                                </div>
+                            </div>
+                            <div class="text-center pb-3">
+                                <span class="mx-auto top-three-flag rounded-lg" style="background-image: url(./assets/img/flag-india.png)"></span>
+                                <span class="font-medium text-white text-xs">IND</span>
+                            </div>
+                        </div>
+                        <div class="top-3-tile rounded-t-lg">
+                            <div>
+                                <div class="h-7">
+                                    <span class="absolute bg-green-400 font-medium px-2 py-1 rounded-br-lg rounded-tl-lg text-xs">1</span>
+                                </div>
+                            </div>
+                            <div class="text-center pb-3">
+                                <span class="mx-auto top-three-flag rounded-lg" style="background-image: url(./assets/img/flag-afg.png)"></span>
+                                <span class="font-medium text-white text-xs">AFG</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-1 mt-2 text-sm">
+                        <!-- Team -->
+                        <div class="bg-white px-3 flex justify-between items-center py-2 font-medium">
+                            <ul class="flex space-x-2">
+                                <li class="mr-6">1</li>
+                                <li class="rank-list-flag bg-center bg-cover" style="background-image: url(./assets/img/flag-aus.png);"></li>
+                                <li>Australia</li>
+                            </ul>
+                            <span>128</span>
+                        </div>
+                        <div class="bg-white px-3 flex justify-between items-center py-2 font-medium">
+                            <ul class="flex space-x-2">
+                                <li class="mr-6">2</li>
+                                <li class="rank-list-flag bg-center bg-cover" style="background-image: url(./assets/img/flag-aus.png);"></li>
+                                <li>Australia</li>
+                            </ul>
+                            <span>128</span>
+                        </div>
+                        <div class="bg-white px-3 flex justify-between items-center py-2 font-medium">
+                            <ul class="flex space-x-2">
+                                <li class="mr-6">3</li>
+                                <li class="rank-list-flag bg-center bg-cover" style="background-image: url(./assets/img/flag-aus.png);"></li>
+                                <li>Australia</li>
+                            </ul>
+                            <span>128</span>
+                        </div>
+                        <div class="bg-white px-3 flex justify-between items-center py-2 font-medium">
+                            <ul class="flex space-x-2">
+                                <li class="mr-6">4</li>
+                                <li class="rank-list-flag bg-center bg-cover" style="background-image: url(./assets/img/flag-aus.png);"></li>
+                                <li>Australia</li>
+                            </ul>
+                            <span>128</span>
+                        </div>
+                        <div class="bg-white px-3 flex justify-between items-center py-2 font-medium">
+                            <ul class="flex space-x-2">
+                                <li class="mr-6">5</li>
+                                <li class="rank-list-flag bg-center bg-cover" style="background-image: url(./assets/img/flag-aus.png);"></li>
+                                <li>Australia</li>
+                            </ul>
+                            <span>128</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-2 text-white uppercase text-sm text-right font-medium">
+                    <a href="#"><span class="text-gray-400">View</span> Full Rankings &nbsp; ></a>
+                </div>
+            </div>
+            <!-- Single Card -->
+            <div>
+                <div class="ranking-card-header rounded-lg">
+                    <div class="h-10">
+                        <span class="absolute bg-teal-400 font-medium px-2 py-1 rounded-br-lg rounded-tl-lg text-xs uppercase">ODI</span>
+                    </div>
+                    <!-- Top 3 -->
+                    <div class="gap-3 grid grid-cols-3 px-3">
+                        <div class="bg-gradient-to-b from-teal-400 to-transparent rounded-t-lg top-3-tile">
+                            <div>
+                                <div class="h-7">
+                                    <span class="absolute font-medium px-2 py-1 rounded-br-lg rounded-tl-lg text-xs">1</span>
+                                </div>
+                            </div>
+                            <div class="text-center pb-3">
+                                <span class="mx-auto top-three-flag rounded-lg" style="background-image: url(./assets/img/flag-aus.png)"></span>
+                                <span class="font-medium text-white text-xs">AUS</span>
+                            </div>
+                        </div>
+                        <div class="top-3-tile rounded-t-lg">
+                            <div>
+                                <div class="h-7">
+                                    <span class="absolute bg-teal-400 font-medium px-2 py-1 rounded-br-lg rounded-tl-lg text-xs">1</span>
+                                </div>
+                            </div>
+                            <div class="text-center pb-3">
+                                <span class="mx-auto top-three-flag rounded-lg" style="background-image: url(./assets/img/flag-india.png)"></span>
+                                <span class="font-medium text-white text-xs">IND</span>
+                            </div>
+                        </div>
+                        <div class="top-3-tile rounded-t-lg">
+                            <div>
+                                <div class="h-7">
+                                    <span class="absolute bg-teal-400 font-medium px-2 py-1 rounded-br-lg rounded-tl-lg text-xs">1</span>
+                                </div>
+                            </div>
+                            <div class="text-center pb-3">
+                                <span class="mx-auto top-three-flag rounded-lg" style="background-image: url(./assets/img/flag-afg.png)"></span>
+                                <span class="font-medium text-white text-xs">AFG</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-1 mt-2 text-sm">
+                        <!-- Team -->
+                        <div class="bg-white px-3 flex justify-between items-center py-2 font-medium">
+                            <ul class="flex space-x-2">
+                                <li class="mr-6">1</li>
+                                <li class="rank-list-flag bg-center bg-cover" style="background-image: url(./assets/img/flag-aus.png);"></li>
+                                <li>Australia</li>
+                            </ul>
+                            <span>128</span>
+                        </div>
+                        <div class="bg-white px-3 flex justify-between items-center py-2 font-medium">
+                            <ul class="flex space-x-2">
+                                <li class="mr-6">2</li>
+                                <li class="rank-list-flag bg-center bg-cover" style="background-image: url(./assets/img/flag-aus.png);"></li>
+                                <li>Australia</li>
+                            </ul>
+                            <span>128</span>
+                        </div>
+                        <div class="bg-white px-3 flex justify-between items-center py-2 font-medium">
+                            <ul class="flex space-x-2">
+                                <li class="mr-6">3</li>
+                                <li class="rank-list-flag bg-center bg-cover" style="background-image: url(./assets/img/flag-aus.png);"></li>
+                                <li>Australia</li>
+                            </ul>
+                            <span>128</span>
+                        </div>
+                        <div class="bg-white px-3 flex justify-between items-center py-2 font-medium">
+                            <ul class="flex space-x-2">
+                                <li class="mr-6">4</li>
+                                <li class="rank-list-flag bg-center bg-cover" style="background-image: url(./assets/img/flag-aus.png);"></li>
+                                <li>Australia</li>
+                            </ul>
+                            <span>128</span>
+                        </div>
+                        <div class="bg-white px-3 flex justify-between items-center py-2 font-medium">
+                            <ul class="flex space-x-2">
+                                <li class="mr-6">5</li>
+                                <li class="rank-list-flag bg-center bg-cover" style="background-image: url(./assets/img/flag-aus.png);"></li>
+                                <li>Australia</li>
+                            </ul>
+                            <span>128</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-2 text-white uppercase text-sm text-right font-medium">
+                    <a href="#"><span class="text-gray-400">View</span> Full Rankings &nbsp; ></a>
+                </div>
+            </div>
+            <!-- Single Card -->
+            <div>
+                <div class="ranking-card-header rounded-lg">
+                    <div class="h-10">
+                        <span class="absolute bg-fuchsia-400 font-medium px-2 py-1 rounded-br-lg rounded-tl-lg text-xs uppercase">Test</span>
+                    </div>
+                    <!-- Top 3 -->
+                    <div class="gap-3 grid grid-cols-3 px-3">
+                        <div class="bg-gradient-to-b from-fuchsia-400 to-transparent rounded-t-lg top-3-tile">
+                            <div>
+                                <div class="h-7">
+                                    <span class="absolute font-medium px-2 py-1 rounded-br-lg rounded-tl-lg text-xs">1</span>
+                                </div>
+                            </div>
+                            <div class="text-center pb-3">
+                                <span class="mx-auto top-three-flag rounded-lg" style="background-image: url(./assets/img/flag-aus.png)"></span>
+                                <span class="font-medium text-white text-xs">AUS</span>
+                            </div>
+                        </div>
+                        <div class="top-3-tile rounded-t-lg">
+                            <div>
+                                <div class="h-7">
+                                    <span class="absolute bg-fuchsia-400 font-medium px-2 py-1 rounded-br-lg rounded-tl-lg text-xs">1</span>
+                                </div>
+                            </div>
+                            <div class="text-center pb-3">
+                                <span class="mx-auto top-three-flag rounded-lg" style="background-image: url(./assets/img/flag-india.png)"></span>
+                                <span class="font-medium text-white text-xs">IND</span>
+                            </div>
+                        </div>
+                        <div class="top-3-tile rounded-t-lg">
+                            <div>
+                                <div class="h-7">
+                                    <span class="absolute bg-fuchsia-400 font-medium px-2 py-1 rounded-br-lg rounded-tl-lg text-xs">1</span>
+                                </div>
+                            </div>
+                            <div class="text-center pb-3">
+                                <span class="mx-auto top-three-flag rounded-lg" style="background-image: url(./assets/img/flag-afg.png)"></span>
+                                <span class="font-medium text-white text-xs">AFG</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-1 mt-2 text-sm">
+                        <!-- Team -->
+                        <div class="bg-white px-3 flex justify-between items-center py-2 font-medium">
+                            <ul class="flex space-x-2">
+                                <li class="mr-6">1</li>
+                                <li class="rank-list-flag bg-center bg-cover" style="background-image: url(./assets/img/flag-aus.png);"></li>
+                                <li>Australia</li>
+                            </ul>
+                            <span>128</span>
+                        </div>
+                        <div class="bg-white px-3 flex justify-between items-center py-2 font-medium">
+                            <ul class="flex space-x-2">
+                                <li class="mr-6">2</li>
+                                <li class="rank-list-flag bg-center bg-cover" style="background-image: url(./assets/img/flag-aus.png);"></li>
+                                <li>Australia</li>
+                            </ul>
+                            <span>128</span>
+                        </div>
+                        <div class="bg-white px-3 flex justify-between items-center py-2 font-medium">
+                            <ul class="flex space-x-2">
+                                <li class="mr-6">3</li>
+                                <li class="rank-list-flag bg-center bg-cover" style="background-image: url(./assets/img/flag-aus.png);"></li>
+                                <li>Australia</li>
+                            </ul>
+                            <span>128</span>
+                        </div>
+                        <div class="bg-white px-3 flex justify-between items-center py-2 font-medium">
+                            <ul class="flex space-x-2">
+                                <li class="mr-6">4</li>
+                                <li class="rank-list-flag bg-center bg-cover" style="background-image: url(./assets/img/flag-aus.png);"></li>
+                                <li>Australia</li>
+                            </ul>
+                            <span>128</span>
+                        </div>
+                        <div class="bg-white px-3 flex justify-between items-center py-2 font-medium">
+                            <ul class="flex space-x-2">
+                                <li class="mr-6">5</li>
+                                <li class="rank-list-flag bg-center bg-cover" style="background-image: url(./assets/img/flag-aus.png);"></li>
+                                <li>Australia</li>
+                            </ul>
+                            <span>128</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-2 text-white uppercase text-sm text-right font-medium">
+                    <a href="#"><span class="text-gray-400">View</span> Full Rankings &nbsp; ></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rank Players Cards -->
+        <section class="gap-4 grid grid-cols-3 mt-10">
+            <!-- Single Card -->
+            <div>
+                <div class="ranking-card-header rounded-lg">
+                    <div class="absolute flex items-center space-x-2">
+                        <span class="bg-green-400 font-medium px-2 py-1 rounded-br-lg rounded-tl-lg text-xs uppercase">Test</span>
+                        <span class="font-medium text-white text-xs uppercase">Batting</span>
+                    </div>
+                    <!-- Top Player -->
+                    <div class="flex justify-between items-end pt-2">
+                        <div class="pb-3 pl-4">
+                            <h2 class="pb-3 text-sm text-white">
+                                Joe
+                                <span class="block font-medium leading-4 text-lg">Root</span>
+                            </h2>
+                            <span
+                                class="rank-list-flag bg-center bg-cover rounded-lg"
+                                style="background-image: url(./assets/img/flag-aus.png);"
+                            ></span>
+                        </div>
+                        <div>
+                            <img src="https://resources.pulse.icc-cricket.com/players/130x150/887.png" class="w-32 player-avatar" alt="">
+                        </div>
+                    </div>
+                    <div class="space-y-1 mt-2 text-sm">
+                        <!-- Player -->
+                        <div class="bg-white px-3 flex justify-between items-center py-2 font-medium">
+                            <ul class="flex space-x-2">
+                                <li class="mr-6">1</li>
+                                <li class="rank-list-flag bg-center bg-cover" style="background-image: url(./assets/img/flag-aus.png);"></li>
+                                <li>Joe Root</li>
+                            </ul>
+                            <span>818</span>
+                        </div>
+                        <div class="bg-white px-3 flex justify-between items-center py-2 font-medium">
+                            <ul class="flex space-x-2">
+                                <li class="mr-6">2</li>
+                                <li class="rank-list-flag bg-center bg-cover" style="background-image: url(./assets/img/flag-aus.png);"></li>
+                                <li>Mitchel Starc</li>
+                            </ul>
+                            <span>759</span>
+                        </div>
+                        <div class="bg-white px-3 flex justify-between items-center py-2 font-medium">
+                            <ul class="flex space-x-2">
+                                <li class="mr-6">3</li>
+                                <li class="rank-list-flag bg-center bg-cover" style="background-image: url(./assets/img/flag-aus.png);"></li>
+                                <li>Rishabh Pant</li>
+                            </ul>
+                            <span>650</span>
+                        </div>
+                        <div class="bg-white px-3 flex justify-between items-center py-2 font-medium">
+                            <ul class="flex space-x-2">
+                                <li class="mr-6">4</li>
+                                <li class="rank-list-flag bg-center bg-cover" style="background-image: url(./assets/img/flag-aus.png);"></li>
+                                <li>Babar Azam</li>
+                            </ul>
+                            <span>632</span>
+                        </div>
+                        <div class="bg-white px-3 flex justify-between items-center py-2 font-medium">
+                            <ul class="flex space-x-2">
+                                <li class="mr-6">5</li>
+                                <li class="rank-list-flag bg-center bg-cover" style="background-image: url(./assets/img/flag-aus.png);"></li>
+                                <li>Steve Smith</li>
+                            </ul>
+                            <span>601</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-2 text-white uppercase text-sm text-right font-medium">
+                    <a href="#"><span class="text-gray-400">View</span> Full Rankings &nbsp; ></a>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
